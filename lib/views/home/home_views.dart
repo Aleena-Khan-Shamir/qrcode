@@ -20,10 +20,15 @@ class HomeViews extends GetView<HomeController> {
             children: [
               TextFormField(
                 controller: controller.urlController,
-                decoration: const InputDecoration(
-                    hintText: 'Enter your Url or password',
-                    labelText: 'Enter your Url or password',
-                    border: OutlineInputBorder(borderSide: BorderSide())),
+                decoration: InputDecoration(
+                    hintText: 'Enter your Url ',
+                    labelText: 'Enter your Url ',
+                    suffixIcon: IconButton(
+                        icon: const Icon(Icons.clear, size: 15),
+                        onPressed: () {
+                          controller.urlController.clear();
+                        }),
+                    border: const OutlineInputBorder(borderSide: BorderSide())),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter url';

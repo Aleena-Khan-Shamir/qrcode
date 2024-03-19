@@ -20,8 +20,6 @@ class QRCodeController extends GetxController {
         final directory = await getApplicationDocumentsDirectory();
         final imagePath = await File('${directory.path}/image.png').create();
         await imagePath.writeAsBytes(image);
-
-        /// Share Plugin
         await Share.shareFiles([imagePath.path]);
       }
     });
@@ -54,6 +52,8 @@ class QRCodeController extends GetxController {
     }
     return null;
   }
+  // ########################################
+  // generate pdf in file manager(downloads)
 
   Future<void> generatePdf(String data) async {
     final pdf = pw.Document();
